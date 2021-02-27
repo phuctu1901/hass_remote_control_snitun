@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  homeassistant:
+    container_name: home-assistant_demo
+    image: homeassistant/home-assistant:stable
+    volumes:
+      - ./homeassistant_data:/config
+      - ./hass-nabucasa/hass_nabucasa:/usr/local/lib/python3.8/site-packages/hass_nabucasa
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    restart: always
+    ports:
+      - "8124:8123"
+    network_mode: host
+
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    volumes:
+      - mosquitto_data:/mosquitto
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    restart: always
+    network_mode: host
+
+  # zigbee2mqtt:
+  #   container_name: zigbee2mqtt
+  #   image: koenkk/zigbee2mqtt:1.8.0
+  #   volumes:
+  #     - ./zigbee2mqtt_data:/app/data
+  #   environment:
+  #     - TZ=Asia/Ho_Chi_Minh
+  #   devices:
+  #       # CC2530 / GBAN GB2530S
+  #     - /dev/ttyUSB0:/dev/ttyUSB0
+  #   restart: always
+  #   network_mode: host
+
+volumes:
+  mosquitto_data:
