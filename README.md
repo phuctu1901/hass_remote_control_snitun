@@ -10,3 +10,5 @@ Mọi người mở file `server/server/.env` và thay đổi các tham số the
 **Hướng dẫn sử dụng source:**
 
 Code này hoạt động trên `Python 3` và cài đặt các thư viện trong file `requirements.txt`
+
+Phần hass_nabucasa source từ nguồn này https://github.com/NabuCasa/hass-nabucasa
