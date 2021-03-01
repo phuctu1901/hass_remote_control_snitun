@@ -1,4 +1,4 @@
-version: '3'
+version: "3.7"
 
 services:
 
@@ -12,8 +12,8 @@ services:
       - TZ=Asia/Ho_Chi_Minh
     restart: always
     ports:
-      - "8124:8123"
-    network_mode: host
+      - "8125:8123"
+    # network_mode: "host"
 
   mosquitto:
     container_name: mosquitto
@@ -23,7 +23,7 @@ services:
     environment:
       - TZ=Asia/Ho_Chi_Minh
     restart: always
-    network_mode: host
+    # network_mode: host
 
   # zigbee2mqtt:
   #   container_name: zigbee2mqtt
